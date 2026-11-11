@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumpulan Tautan Aplikasi - SMPN 2 Puhpelem</title>
+    <!-- Memuat FontAwesome untuk ikon dan Google Fonts (Poppins) untuk tipografi premium -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Reset & Background Animasi */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Latar belakang gradasi yang bergerak otomatis */
+            background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #182848);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #ffffff;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Styling Header / Judul */
+        .header-container {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        h2 {
+            margin: 5px 0;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        
+        .header-container h2:nth-child(1) { font-size: 1.2rem; font-weight: 600; color: #a8c0ff; }
+        .header-container h2:nth-child(2) { font-size: 2.2rem; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .header-container h2:nth-child(3) { font-size: 1rem; font-weight: 400; color: #e0e0e0; font-style: italic; }
+
+        /* Container Kotak Tautan */
+        .link-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* Desain Kotak Premium (Glassmorphism) */
+        .link-box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+
+            /* Efek Kaca (Glass) & Bayangan */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            /* Animasi Muncul Berurutan */
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Delay agar 12 kotak muncul bergantian secara halus */
+        .link-box:nth-child(1) { animation-delay: 0.05s; }
+        .link-box:nth-child(2) { animation-delay: 0.10s; }
+        .link-box:nth-child(3) { animation-delay: 0.15s; }
+        .link-box:nth-child(4) { animation-delay: 0.20s; }
+        .link-box:nth-child(5) { animation-delay: 0.25s; }
+        .link-box:nth-child(6) { animation-delay: 0.30s; }
+        .link-box:nth-child(7) { animation-delay: 0.35s; }
+        .link-box:nth-child(8) { animation-delay: 0.40s; }
+        .link-box:nth-child(9) { animation-delay: 0.45s; }
+        .link-box:nth-child(10) { animation-delay: 0.50s; }
+        .link-box:nth-child(11) { animation-delay: 0.55s; }
+        .link-box:nth-child(12) { animation-delay: 0.60s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Pattern Overlay Dinamis di Dalam Kotak */
+        .link-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 2px, transparent 2.5px),
+                radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.05) 4px, transparent 4.5px);
+            background-size: 24px 24px, 12px 12px;
+            z-index: -1;
+            opacity: 0.5;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        /* Efek Animasi Saat Kursor Menyentuh Kotak (Hover) */
+        .link-box:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .link-box:hover::before {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Pembungkus Ikon Bulat Elegan */
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .link-box i {
+            font-size: 28px;
+            color: #ffffff;
+            transition: transform 0.4s ease;
+        }
+
+        /* Animasi Ikon Bersinar Saat Hover */
+        .link-box:hover .icon-wrapper {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .link-box:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Palet Warna Gradasi Premium untuk 12 Kotak */
+        .box-1  { background: linear-gradient(135deg, #4285F4 0%, #1A56B4 100%); }
+        .box-2  { background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%); }
+        .box-3  { background: linear-gradient(135deg, #434343 0%, #000000 100%); }
+        .box-4  { background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%); }
+        .box-5  { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .box-6  { background: linear-gradient(135deg, #0061ff 0%, #60efff 100%); }
+        .box-7  { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .box-8  { background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); }
+        .box-9  { background: linear-gradient(135deg, #f12711 0%, #f5af19 100%); }
+        .box-10 { background: linear-gradient(135deg, #b224ef 0%, #7579ff 100%); }
+        .box-11 { background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%); }
+        .box-12 { background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h2>KUMPULAN TAUTAN APLIKASI</h2>
+        <h2>SMP NEGERI 2 PUHPELEM</h2>
+        <h2>Created by Podo Prayitno</h2>
+    </div>
+
+    <div class="link-container">
+        <!-- Kotak 1: ABSEN MURID -->
+        <a href="https://script.google.com/macros/s/AKfycbwi7MqcrC50Wq7Pln42yZlqxjAcC8KwW3SKZLYjpGhqqvVmvWirOaHTWbOhx2Qf_IL7/exec" target="_blank" class="link-box box-1">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            ABSEN MURID
+        </a>
+
+        <!-- Kotak 2: PENGARSIPAN -->
+        <a href="https://script.google.com/macros/s/AKfycbxxAY8J0pRSSXchA8xOP7cC9lqC7pFcQGBTO69E575UZCXUPuEYb1PrmHh1jnISbrC5qg/exec" target="_blank" class="link-box box-2">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-folder"></i>
+            </div>
+            PENGARSIPAN
+        </a>
+
+        <!-- Kotak 3: PERSURATAN -->
+        <a href="https://script.google.com/macros/s/AKfycbzxMw2G_wjAOUXX1-KpdkrJhQfL4GOubyZdAI4XA-YW9h4xnmLkL-sVpvuyEclzddcf/exec" target="_blank" class="link-box box-3">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            PERSURATAN
+        </a>
+
+        <!-- Kotak 4: APLIKASI ASSESMEN -->
+        <a href="https://script.google.com/macros/s/AKfycbzJpqmUixMfAfJyB-aCdq8_VgYe7gObtg55XOu2U7fac5Fbqdki-XVlM8vXHzLmNEF_4Q/exec" target="_blank" class="link-box box-4">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-file-pen"></i>
+            </div>
+            APLIKASI ASSESMEN
+        </a>
+
+        <!-- Kotak 5: GAJI -->
+        <a href="https://script.google.com/macros/s/AKfycbxr6XT4yQ8Mtz1NAChn95tgbQxzpySQnXdUOzdj5sXdPCkV2NjCIVbPjddFTMPPmWSDVg/exec" target="_blank" class="link-box box-5">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-money-check-dollar"></i>
+            </div>
+            GAJI
+        </a>
+
+        <!-- Kotak 6: INPUT NILAI -->
+        <a href="https://script.google.com/macros/s/AKfycbxzVfuEMIlQ4jIcp9WSHVtPXbpm6vRRXCSjviNCJeXWHNH8Zdi3GoqAV2ALgjO9ehE5/exec" target="_blank" class="link-box box-6">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-square-pen"></i>
+            </div>
+            INPUT NILAI
+        </a>
+
+        <!-- Kotak 7: SPPD -->
+        <a href="https://script.google.com/macros/s/AKfycbxrP5vOO6yvxPG08eA4EnXxN59G9OGiN9iTaWt_Kc226Wp9hJ5DLS-5FcMURdIFt4VnXw/exec" target="_blank" class="link-box box-7">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+            SPPD
+        </a>
+
+        <!-- Kotak 8 (Link Kosong) -->
+        <a href="#" class="link-box box-8">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-link"></i>
+            </div>
+            APLIKASI 8
+        </a>
+
+        <!-- Kotak 9 (Link Kosong) -->
+        <a href="#" class="link-box box-9">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-link"></i>
+            </div>
+            APLIKASI 9
+        </a>
+
+        <!-- Kotak 10 (Link Kosong) -->
+        <a href="#" class="link-box box-10">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-link"></i>
+            </div>
+            APLIKASI 10
+        </a>
+
+        <!-- Kotak 11 (Link Kosong) -->
+        <a href="#" class="link-box box-11">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-link"></i>
+            </div>
+            APLIKASI 11
+        </a>
+
+        <!-- Kotak 12 (Link Kosong) -->
+        <a href="#" class="link-box box-12">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-link"></i>
+            </div>
+            APLIKASI 12
+        </a>
+
+    </div>
+
+</body>
+</html>
